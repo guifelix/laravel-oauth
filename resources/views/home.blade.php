@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
+
                     <div id="app">
                         <passport-clients></passport-clients>
                         <passport-authorized-clients></passport-authorized-clients>
@@ -25,3 +25,11 @@
     </div>
 </div>
 @endsection
+@push('script')
+<script>
+    axios.get('/oauth/clients')
+    .then(response => {
+        console.log(response.data);
+    });
+</script>
+@endpush
